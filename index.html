@@ -499,6 +499,47 @@
       </section>
     </main>
 
+    <!-- Demo popup modal -->
+    <div class="modal-overlay" id="demoModal">
+      <div
+        class="modal-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="demoModalTitle"
+      >
+        <div class="modal-header">
+          <span class="modal-title" id="demoModalTitle">Try the Lesson</span>
+          <button
+            type="button"
+            class="modal-close"
+            id="demoModalClose"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="modal-body">
+          <iframe
+            id="demoModalFrame"
+            src=""
+            title="Interactive lesson demo"
+            allow="fullscreen"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="modal-return"
+            id="demoModalReturn"
+          >
+            ↩ Return to page
+          </button>
+        </div>
+      </div>
+    </div>
+
     <footer>© 2026 Indah Setiawan.<br />Built with intent.</footer>
 
     <script>
@@ -539,6 +580,47 @@
       } else {
         revealEls.forEach((el) => el.classList.add("is-visible"));
       }
+
+      // Demo popup modal
+      const demoModal = document.getElementById("demoModal");
+      const demoFrame = document.getElementById("demoModalFrame");
+      const demoTitle = document.getElementById("demoModalTitle");
+      const demoClose = document.getElementById("demoModalClose");
+      const demoReturn = document.getElementById("demoModalReturn");
+      let lastTrigger = null;
+
+      function openDemo(trigger) {
+        lastTrigger = trigger;
+        const src = trigger.getAttribute("data-demo-src");
+        const title =
+          trigger.getAttribute("data-demo-title") || "Try the Lesson";
+        demoFrame.src = src;
+        demoTitle.textContent = title;
+        demoModal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        demoClose.focus();
+      }
+
+      function closeDemo() {
+        demoModal.classList.remove("is-open");
+        demoFrame.src = ""; // stop playback/audio when closed
+        document.body.style.overflow = "";
+        if (lastTrigger) lastTrigger.focus();
+      }
+
+      document.querySelectorAll("[data-demo-trigger]").forEach((btn) => {
+        btn.addEventListener("click", () => openDemo(btn));
+      });
+      demoClose.addEventListener("click", closeDemo);
+      demoReturn.addEventListener("click", closeDemo);
+      demoModal.addEventListener("click", (e) => {
+        if (e.target === demoModal) closeDemo();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && demoModal.classList.contains("is-open")) {
+          closeDemo();
+        }
+      });
     </script>
   </body>
 </html>
