@@ -678,7 +678,7 @@ footer {
 }
 .modal-box {
   background: #fff;
-  width: min(1200px, 96vw);
+  width: min(1200px, 96vw, calc((94vh - 90px) * 16 / 9));
   max-height: 94vh;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -726,8 +726,9 @@ footer {
 }
 .modal-body {
   position: relative;
-  flex: 1;
-  min-height: 320px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 240px;
   background: #f1f1ed;
 }
 .modal-body iframe {
