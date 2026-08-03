@@ -1,0 +1,293 @@
+:root {
+  --paper: #fffaf3;
+  --ink: #1c2430;
+  --muted: #5b6472;
+  --hairline: #dbdcd1;
+  --card: #eeeeee;
+  --teal: #5e244e;
+  --teal-light: #f9d0cd;
+  --teal-mid: #b30753;
+  --teal-dark-text: #eeeeee;
+  --gold: #b8862e;
+  --gold-light: #f3e3c2;
+  --gold-text: #6b4b10;
+  --gray-light: #e4e2d8;
+  --gray-text: #5b5a4f;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family:
+    "Open Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+a {
+  color: var(--teal);
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 40px;
+}
+.back-link:hover {
+  color: var(--teal);
+}
+.eyebrow {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+
+h1 {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1.7;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+.meta {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 32px;
+  letter-spacing: 0.04em;
+}
+
+/*tag*/
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: "IBM Plex Mono", monospace;
+}
+.tag.gold {
+  background: var(--gold-light);
+  color: var(--gold-text);
+}
+.tag.teal {
+  background: var(--teal-light);
+  color: var(--teal-mid);
+}
+
+/*stats*/
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 56px;
+}
+.stat {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 16px;
+}
+.stat .label {
+  font-size: 12px;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+.stat .value {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+}
+section {
+  margin-bottom: 44px;
+}
+
+h2 {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+p {
+  font-size: 16px;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+p.lede {
+  color: var(--muted);
+}
+.placeholder-note {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 6px;
+}
+
+/* story image */
+.story-image {
+  margin: 20px 0 8px;
+}
+.story-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 0.5px solid var(--hairline);
+}
+.story-image figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+/* tracker table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 20px 0;
+}
+th,
+td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 0.5px solid var(--hairline);
+}
+
+td:first-child,
+th:first-child {
+  text-align: left;
+  color: var(--muted);
+}
+.pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-family: "IBM Plex Mono", monospace;
+}
+.pill.notstarted {
+  background: var(--gray-light);
+  color: var(--gray-text);
+}
+.pill.dev {
+  background: var(--teal-light);
+  color: var(--teal-text);
+}
+.pill.qa1 {
+  background: var(--gold-light);
+  color: var(--gold-text);
+}
+.pill.qa2 {
+  background: var(--teal-mid);
+  color: var(--teal-dark-text);
+}
+.pill.done {
+  background: var(--teal);
+  color: #fff;
+}
+
+/* quote label above a blockquote, for dialogue-style excerpts */
+.quote-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 24px 0 -14px;
+}
+
+blockquote {
+  border-left: 3px solid var(--gold);
+  border-radius: 0;
+  margin: 28px 0;
+  padding: 2px 0 2px 20px;
+}
+blockquote p {
+  font-family: "Source Serif 4", serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+blockquote.dialogue p {
+  font-family: "Baskervville";
+  font-size: 16px;
+  font-style: normal;
+}
+
+.footer-nav {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 0.5px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-nav a {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--muted);
+}
+.footer-nav a:hover {
+  color: var(--teal);
+}
+.footer-nav .next {
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  table {
+    font-size: 11px;
+  }
+  .footer-nav {
+    flex-direction: column;
+  }
+  .footer-nav .next {
+    text-align: left;
+  }
+}
