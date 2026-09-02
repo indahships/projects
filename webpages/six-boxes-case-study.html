@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagnosing an AI Adoption Gap</title>
+    <link rel="icon" type="image/x-icon" href="/indah-avatar-circle.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles-pages.css" />
+    <style>
+      .row-label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        margin: 28px 0 10px;
+      }
+      .row-label:first-of-type {
+        margin-top: 20px;
+      }
+
+      .boxes-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .box-card {
+        background: var(--card);
+        border-radius: 10px;
+        padding: 16px;
+      }
+      .box-card .box-num {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 12px;
+        color: var(--muted);
+        margin: 0 0 4px;
+      }
+      .box-card h3 {
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        margin: 0 0 10px;
+        line-height: 1.3;
+      }
+      .box-card ul {
+        margin: 0;
+        padding-left: 16px;
+        font-size: 13px;
+        color: var(--ink);
+      }
+      .box-card li {
+        margin-bottom: 6px;
+      }
+      .box-card li:last-child {
+        margin-bottom: 0;
+      }
+      .box-card li.obstacle {
+        color: var(--teal-mid);
+      }
+      .legend-note {
+        font-size: 13px;
+        color: var(--muted);
+        font-style: italic;
+        margin: 12px 0 20px;
+      }
+
+      .table-scroll {
+        background-color: var(--paper);
+        overflow-x: auto;
+        margin: 20px 0 8px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .qa-table {
+        min-width: 680px;
+      }
+      .qa-table th,
+      .qa-table td {
+        vertical-align: top;
+        padding: 10px 12px;
+      }
+      .qa-table td:first-child,
+      .qa-table th:first-child {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 12px;
+        color: var(--muted);
+        width: 24px;
+      }
+      .qa-table ul {
+        margin: 0;
+        padding-left: 16px;
+      }
+      .qa-table ul li {
+        margin-bottom: 4px;
+      }
+      .qa-table ul li:last-child {
+        margin-bottom: 0;
+      }
+      .owners-cell {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .pill.owner {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      .pill.owner.support {
+        background: transparent;
+        border: 0.5px solid var(--hairline);
+        color: var(--muted);
+      }
+
+      @media (max-width: 560px) {
+        .boxes-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back-link" href="/index.html">&larr; Back to main page</a>
+
+      <h1 style="line-height: 1.3;";>Six Boxes® Model: AI Assistant Integration</h1>
+
+      <div class="tag-row">
+        <span class="tag gold">Learning Strategy</span>
+        <span class="tag gold">AI Integration</span>
+        <span class="tag gold">Performance Management</span>
+        <span class="tag gold">Behavioral Science</span>
+      </div>
+
+      <p style="margin: 40px 0;">
+        When performance falters, the common response is to conduct a training program. While it's easy to assume low performance means lack of knowledge and skills, <em><strong>is there a way to test that assumption?</strong></em>
+        </br>
+        </br>
+        This case study uses <a href="https://www.sixboxes.com/The-Team.html" target="_blank">Dr. Carl Binder</a>'s Six Boxes® Model to find root causes beyond just skill gaps as <strong>a learning strategist</strong>. It demonstrates how shifting the focus from only individual capacity to environmental and systemic support can improve performance.
+      </p>
+
+      <section id="problem">
+        <h2>The problem</h2>
+        <p>
+          A mid-size professional services firm (~2,000 employees) launched <strong>an enterprise AI assistant</strong> for everyone, along with a single onboarding webinar, to boost productivity.
+          </br></br>
+          Current observations show a clear divide in tool use across teams and seniority levels. Some employees use the tool constantly, while others hardly use it. Among active users, the level of use varies greatly. Some find real value, while others only use the assistant for simple tasks. This uneven engagement raises compliance risks, as a few incidents of sensitive client data being pasted into prompts have triggered alerts from legal and compliance teams. The organization also lacks a formal feedback channel, which forces leadership to rely on raw usage data and scattered anecdotes.
+          </br></br>
+          Navigating these changes involves several tough constraints. Employees have no dedicated time for training or exploration. Data security and governance requirements are strict and non-negotiable. Frequent feature updates mean the tool's capabilities are always changing, making any fixed training strategy ineffective. Meanwhile, leadership expects measurable progress and improvement in the next two quarters.
+        </p>
+      </section>
+
+      <section id="approach">
+        <h2>The approach</h2>
+        <p>
+          Before recommending training, the real task was to see if training was the right solution. I used the <strong>Six Boxes® Model</strong> to distinguish a skills gap from a systems problem.
+          </br></br>
+          The model divides factors that affect performance into six areas: three environmental (expectations, tools, incentives) and three individual (skills, capacity, motives). Of all six, <strong>only one of the six can really be addressed by a training program</strong>.
+          </br></br>
+          To learn more about Six Boxes® Model, you can watch the video below.
+        </p>
+
+        <div style="display: flex; justify-content: center;">
+          <iframe style="text-align: center;" width="100%" height="360" src="https://www.youtube.com/embed/DxgUeAMM8hE?si=wuCwk2fvGEJF5WLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+      </section>
+
+      <section id="finding">
+        <h2>The diagnostic test</h2>
+        <p>
+          Laid out this way, the pattern is hard to miss. <strong>Five of the six</strong> are issues outside a training team's control:
+          </br>
+          <ul style="margin: 0;">
+            <li>unclear expectations</li>
+            <li>missing usage guidelines</li>
+            <li>no feedback loop</li>
+            <li>no defined incentives, and</li>
+            <li>no dedicated time</li>
+          </ul>
+          </br>
+          Only Box 4 is something a training intervention can actually improve.
+        </p>
+        <p class="row-label">Environment</p>
+        <div class="boxes-grid">
+          <div class="box-card">
+            <p class="box-num">Box 1</p>
+            <h3>Expectations &amp; Feedback</h3>
+            <ul>
+              <li>Leadership expects measurable progress in 6 months.</li>
+              <li class="obstacle">Employees have no proper channel to communicate feedback on their needs and AI usage itself.</li>
+            </ul>
+          </div>
+          <div class="box-card">
+            <p class="box-num">Box 2</p>
+            <h3>Tools &amp; Resources</h3>
+            <ul>
+              <li>Each employee received a license and one onboarding webinar</li>
+              <li class="obstacle">AI tool often experiences frequent updates, which prevent any long-term fixed training plan</li>
+              <li class="obstacle">There’s no uniform guidelines on AI usage (e.g., trigger compliance risks by adding clients’ confidential data to AI prompts)</li>
+            </ul>
+          </div>
+          <div class="box-card">
+            <p class="box-num">Box 3</p>
+            <h3>Consequences &amp; Incentives</h3>
+            <ul>
+              <li>Implementing AI assistant to daily work is expected to improve productivity</li>
+              <li class="obstacle">No tangible objectives identified yet</li>
+              <li class="obstacle">No tangible incentives identified yet</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="row-label">Individual</p>
+        <div class="boxes-grid">
+          <div class="box-card">
+            <p class="box-num">Box 4</p>
+            <h3>Skills &amp; Knowledge</h3>
+            <ul>
+              <li class="obstacle">Unclear difference of prior skills or knowledge as suggested by varied depth of use</li>
+            </ul>
+          </div>
+          <div class="box-card">
+            <p class="box-num">Box 5</p>
+            <h3>Selection &amp; Assignment</h3>
+            <ul>
+              <li>AI use is mandatory for everyone</li>
+              <li class="obstacle">Employees are given no dedicated time to integrate AI usage</li>
+            </ul>
+          </div>
+          <div class="box-card">
+            <p class="box-num">Box 6</p>
+            <h3>Motives &amp; Preferences</h3>
+            <ul>
+              <li>Employees hopefully gain strategic boost of productivity from AI usage</li>
+              <li class="obstacle">Frequency of use varies widely across teams and seniority</li>
+            </ul>
+          </div>
+        </div>
+        <p class="legend-note">Note: Pink items are negative behavior influences/obstacles.</p>
+        <p>
+          This distinction changes what gets built next. A training program addresses issues around Skills and Knowledge, but does nothing for the other issues. <strong>Without these in place</strong>, even a well-designed course is unlikely to show measurable results in two quarters.
+        </p>
+      </section>
+
+      <section id="actions">
+        <h2>Action plans</h2>
+        <p>
+          Each box raised specific follow-up questions and each question needed at least one action item and its owner. <strong>Mapping action items and ownership</strong> were as important as the diagnosis itself. It turned the findings into something that could be assigned to the proper team.
+        </p>
+
+        <div class="table-scroll">
+          <table class="qa-table">
+            <tr>
+              <th>#</th>
+              <th>Element</th>
+              <th>Question</th>
+              <th>Possible action(s)</th>
+              <th>Owner(s)</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><span style="background-color: var(--teal); color: var(--teal-light)" class="tag">Expectations &amp; Feedback</span></td>
+              <td>How can employees communicate feedback and needs about the rollout?</td>
+              <td>
+                <ul>
+                  <li>Add needs/expectations questions to a short 5-min employee survey</li>
+                  <li>Audit the onboarding webinar for an existing feedback loop; if not, collaborate with IT department and other relevant stakeholders (e.g., HR) to incorporate this feature</li>
+                </ul>
+              </td>
+              <td>
+                <div class="owners-cell">
+                  <span class="pill owner">Learning</span>
+                  <span class="pill owner">IT</span>
+                  <span class="pill owner support">HR</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><span style="background-color: var(--teal); color: var(--teal-light)" class="tag">Tools &amp; Resources</span></td>
+              <td>How do we keep employees compliant while they integrate AI into daily work?</td>
+              <td>Draft company guidelines on AI usage with legal and compliance teams</td>
+              <td>
+                <div class="owners-cell">
+                  <span class="pill owner">Legal &amp; Compliance</span>
+                  <span class="pill owner">HR</span>
+                  <span class="pill owner support">Leadership</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><span style="background-color: var(--teal); color: var(--teal-light)" class="tag">Tools &amp; Resources</span></td>
+              <td>What's actually in the onboarding webinar?</td>
+              <td>Audit the webinar's content and format against employee needs; adjust if it falls short (e.g., adding lessons about <a href="https://indahships.github.io/projects/webpages/teaching-ai-fluency.html" target="_blank">4D Framework</a>).</td>
+              <td>
+                <div class="owners-cell">
+                  <span class="pill owner">Learning</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><span style="background-color: var(--teal); color: var(--teal-light)" class="tag">Consequences &amp; Incentives</span></td>
+              <td>What would a successful rollout actually look like?</td>
+              <td>Define clear, measurable objectives with relevant stakeholders (i.e., leadership, HR, legal, etc)</td>
+              <td>
+                <div class="owners-cell">
+                  <span class="pill owner">Leadership</span>
+                  <span class="pill owner support">HR</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><span style="background-color: var(--teal); color: var(--teal-light)" class="tag">Consequences &amp; Incentives</span></td>
+              <td>Beyond productivity, what would motivate adoption?</td>
+              <td>Identify concrete incentives to share with employees (e.g. paid training hours).</td>
+              <td>
+                <div class="owners-cell">
+                  <span class="pill owner">HR</span>
+                  <span class="pill owner support">Learning</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><span class="tag teal">Skills &amp; Knowledge</span></td>
+              <td>What did employees already know before AI integration?</td>
+              <td rowspan="3">
+                Gather past performance data by:
+                <ul>
+                  <li>conducting quick 5-mins survey to identify knowledge gap among employees</li>
+                  <li>collaborating with department managers to analyze past team performance and achievement data</li>
+                  <li>collaborating with IT department to analyze usage behavior based on existing AI data</li>
+                </ul>
+              </td>
+              <td rowspan="3">
+                <div class="owners-cell">
+                  <span class="pill owner">Learning</span>
+                  <span class="pill owner">Team Managers</span>
+                  <span class="pill owner">IT</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><span class="tag teal">Skills &amp; Knowledge</span></td>
+              <td>What did employees already do before AI integration?</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><span class="tag teal">Motives &amp; Preferences</span></td>
+              <td>What do employees find difficult when using the AI assistant?</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><span class="tag teal">Selection &amp; Assignment</span></td>
+              <td>What's the best way to roll this out without disrupting active workflows?</td>
+              <td>
+                <ul>
+                  <li>Pilot a phased rollout with smaller teams and embed AI tasks into existing workflow checkpoints (e.g., draft review stage) so AI integration doesn't compete with existing workload all at once</li>
+                  <li>Explore additional incentive structures with HR and leadership, such as paid training hours</li>
+                </ul>
+              </td>
+              <td>
+                <div class="owners-cell">
+                  <span class="pill owner">Learning</span>
+                  <span class="pill owner">Team Managers</span>
+                  <span class="pill owner support">HR</span>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p class="legend-note">For <strong>Owner(s)</strong>, grey color indicates "acknowledging/supervising" only. </br> Scroll horizontally to see the full table on smaller screens.</p>
+      </section>
+      </section>
+
+      <section id="reflection">
+        <h2>Reflection</h2>
+        <p>
+          The urge to jump straight to <em>"let's build training"</em> was strong because it's the one thing Learning team can fully control. But doing the diagnostic first allowed me to show, with evidence, that training alone wouldn't solve the problem and to identify what else needed to happen first.
+          </br></br>
+          For me, the <strong>action items and ownership mapping</strong> were the best part of the exercise. Naming what to do and who is responsible for each fix makes the diagnosis actionable. A manager reading this doesn't have to guess what they need to act on and what belongs to Learning. On top of that, <strong>tracking and measuring progress</strong> to see if the objectives are achieved become a lot easier.
+        </p>
+      </section>
+
+      <div class="footer-nav">
+        <a href="/index.html">&larr; Back to main page</a>
+      </div>
+    </div>
+  </body>
+</html>
