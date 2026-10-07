@@ -253,6 +253,91 @@ blockquote.dialogue p {
   font-style: normal;
 }
 
+/* placeholder for zoomable images */
+.zoom-figure {
+  position: relative;
+  margin: 20px 0 8px;
+}
+.zoom-figure img.zoomable {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  border: 0.5px solid var(--hairline);
+  cursor: zoom-in;
+}
+.zoom-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  border: 0.5px solid var(--hairline);
+  border-radius: 50%;
+  color: var(--muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.zoom-figure:hover .zoom-hint,
+.zoom-figure:focus-within .zoom-hint {
+  opacity: 1;
+}
+.zoom-figure figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.img-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 36, 48, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 999;
+}
+.img-lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.img-lightbox-content {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 10px;
+  display: block;
+}
+.img-lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0.5px solid var(--hairline);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 560px) {
+  .img-lightbox-close {
+    top: 12px;
+    right: 12px;
+  }
+}
+
 .footer-nav {
   margin-top: 64px;
   padding-top: 28px;
